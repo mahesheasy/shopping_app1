@@ -22,4 +22,7 @@ class ProductviewSuccessState extends ProductviewState {
   ProductviewSuccessState({
     required this.productItems,
   });
+  
 }
+class ProductItemNavigateToProductItemViewedActionState extends ProductviewState{}
+class ProductItemViewedActionState extends ProductviewState{}

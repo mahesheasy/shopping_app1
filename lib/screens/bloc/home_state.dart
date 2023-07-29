@@ -43,5 +43,4 @@ class HomeNavigateToCartlistPageActionState extends HomeActionState {}
 class HomeProductItemWishlistedActionState extends HomeActionState {}
 
 class HomeProductItemCartedActionState extends HomeActionState {}
-class ProductItemNavigateToProductItemViewedActionState extends HomeActionState{}
-class ProductItemViewedActionState extends HomeActionState{}
+

@@ -54,16 +54,17 @@ class ProductViewWidget extends StatelessWidget {
                 children: [
                   // IconButton(
                   //     onPressed: () {
-                  //       productviewBloc.add(HomeProductWishlistButtonClickedEvent(
-                  //           clickedProduct: productDataModel));
+                  //       productviewBloc.add((productviewBloc.state.
+                  //          ));
                   //     },
                   //     icon: const Icon(Icons.favorite_border)),
                   // IconButton(
                   //   onPressed: () {
-                  //    homebloc.
+                  //     homebloc
+                   
                   //   },
-                  //   icon: const Icon(Icons.shopping_bag_outlined),
-                  // ),
+                   // icon: const Icon(Icons.shopping_bag_outlined),
+                 // ),
                   IconButton(
                       onPressed: () {
                         productviewBloc.add(

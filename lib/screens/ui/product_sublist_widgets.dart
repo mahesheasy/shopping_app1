@@ -24,35 +24,7 @@ class Product_category_row extends StatelessWidget {
           color: Colors.black,
           thickness: 20,
         ),
-        // Container(
-        //   color: Colors.blueGrey,
-        //   padding: const EdgeInsets.all(20),
-        //   child: const Text(
-        //     "Products For You",
-        //     textAlign: TextAlign.start,
-        //     style: TextStyle(fontFamily: bold, fontSize: 10,),
-        //   ),
-        // ),
-        // Container(
-        //   child: Stack(
-        
-        //     children:  const[
-        //       Text(
-        //         "Products For You",
-        //         textAlign: TextAlign.start,
-                
-        
-        //         style: TextStyle(
-        //           fontFamily: bold,
-        //           fontSize: 30,
-        //           backgroundColor: Colors.blue
-                  
-        //         ),
-        //       ),
-        
-        //     ],
-        //   ),
-        // ),
+     
         SizedBox(
           height: 350,
           child: ListView.builder(

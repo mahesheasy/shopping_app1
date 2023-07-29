@@ -22,10 +22,3 @@ class HomeCartButtonNavigateEvent extends HomeEvent {}
 
 
 
-class ProductViewButtonClickedEvent extends HomeEvent {
-  final ProductDataModel singleProductClicked;
-
-  ProductViewButtonClickedEvent({required this.singleProductClicked});
-}
-
-class ProductViewButtonNavigateEvent extends HomeEvent {}

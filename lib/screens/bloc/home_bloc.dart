@@ -21,8 +21,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeProductCartButtonClickedEvent>(homeProductCartButtonClickedEvent);
     on<HomeWhishlistButtonNavigateEvent>(homeWhishlistButtonNavigateEvent);
     on<HomeCartButtonNavigateEvent>(homeCartButtonNavigateEvent);
-    on<ProductViewButtonClickedEvent>(productViewButtonClickedEvent);
-    on<ProductViewButtonNavigateEvent>(productViewButtonNavigateEvent);
+   
   }
   FutureOr<void> homeInitialEvent(
       HomeInitialEvent event, Emitter<HomeState> emit) async {
@@ -87,15 +86,5 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(HomeNavigateToCartlistPageActionState());
   }
 
-  FutureOr<void> productViewButtonClickedEvent(
-      ProductViewButtonClickedEvent event, Emitter<HomeState> emit) {
-        print('one of the produvt item is clicked');
-        emit(ProductItemViewedActionState());
-      }
-
-  FutureOr<void> productViewButtonNavigateEvent(
-      ProductViewButtonNavigateEvent event, Emitter<HomeState> emit) {
-        print('product view navigate clicked');
-        emit(ProductItemNavigateToProductItemViewedActionState());
-      }
+  
 }

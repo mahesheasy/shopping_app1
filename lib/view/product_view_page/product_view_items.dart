@@ -120,7 +120,7 @@ class ProductDetailScreen extends StatelessWidget {
                     expandText: 'Read more',
                     collapseText: 'Read less',
                     maxLines: 2,
-                    linkColor: Colors.blue,
+                    linkColor: Colors.blueAccent,
                     linkStyle: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 24),
@@ -157,6 +157,17 @@ class ProductDetailScreen extends StatelessWidget {
                           print(rate);
                         },
                       ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      const Icon(
+                        Icons.people,
+                        color: Colors.black,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(productDataModel.count.toString()),
                     ],
                   ),
                 ],
@@ -206,7 +217,7 @@ class CustomBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 50, // Height of the custom bottom sheet container
-      color: Colors.blueAccent, // Background color of the container
+      color: Colors.grey, // Background color of the container
       padding: const EdgeInsets.symmetric(horizontal: 20),
 
       child: Row(
@@ -219,7 +230,7 @@ class CustomBottomSheet extends StatelessWidget {
               // Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()));
             },
             style: ElevatedButton.styleFrom(
-                primary: Colors.blue, minimumSize: Size(150, 50)),
+                backgroundColor: Colors.blue, minimumSize: const Size(150, 50)),
             child: const Text(
               'Add to Cart',
               style: TextStyle(
@@ -234,7 +245,8 @@ class CustomBottomSheet extends StatelessWidget {
               // For example, you can show a confirmation dialog or process the purchase
             },
             style: ElevatedButton.styleFrom(
-                primary: Colors.green, minimumSize: Size(150, 50)),
+                backgroundColor: Colors.green,
+                minimumSize: const Size(150, 50)),
             child: const Text(
               'Buy Now',
               style: TextStyle(
