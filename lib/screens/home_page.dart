@@ -8,12 +8,12 @@ import 'package:shopping_app/cart/cartitems.dart';
 import 'package:shopping_app/consts/consts.dart';
 
 import 'package:shopping_app/screens/bloc/home_bloc.dart';
+import 'package:shopping_app/screens/ui/category_widget.dart';
 import 'package:shopping_app/screens/ui/circular_avatar_widget.dart';
 
 import 'package:shopping_app/screens/ui/product_sublist_widgets.dart';
 
 import 'package:shopping_app/data/scrolling_images.dart';
-
 
 import 'package:shopping_app/whishlist/whishlist.dart';
 
@@ -59,11 +59,7 @@ class _HomepageState extends State<Homepage> {
               content: Text("Item Carted"),
             ),
           );
-         } 
-        //else if (state is ProductItemNavigateToProductItemViewedActionState) {
-        //   Navigator.push(context,
-        //       MaterialPageRoute(builder: (context) => const ProductItems()));
-        // }
+        }
       },
       builder: (context, state) {
         switch (state.runtimeType) {
@@ -92,14 +88,8 @@ class _HomepageState extends State<Homepage> {
                     onPressed: () {
                       homeBloc.add(HomeCartButtonNavigateEvent());
                     },
-                    icon: const Icon(Icons.shopping_bag_outlined),
+                    icon: const Icon(Icons.shopping_cart),
                   ),
-                  // IconButton(
-                  //   onPressed: () {
-                  //     homeBloc.add(ProductViewButtonNavigateEvent());
-                  //   },
-                  //   icon: const Icon(Icons.shopping_bag_outlined),
-                  // ),
                 ],
               ),
               body: SingleChildScrollView(
@@ -166,10 +156,22 @@ class _HomepageState extends State<Homepage> {
                       color: Colors.grey,
                       thickness: 10,
                     ),
-                    const Card(
-                      color: Color.fromARGB(255, 185, 34, 34),
-                      margin: EdgeInsets.all(30),
+                     const SizedBox(height: 2,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children:  const [
+                        CategoryWidget(title: 'Sort', icon: Icons.sync_alt_outlined,),
+                        CategoryWidget(title: 'Category',icon: Icons.sync_alt_outlined,),
+                        CategoryWidget(title: 'Gender',icon: Icons.sync_alt_outlined,),
+                          CategoryWidget(title: 'Filters',icon: Icons.filter_list,),
+                      ],
                     ),
+                    const SizedBox(height: 2,),
+                       const Divider(
+                      color: Colors.grey,
+                      thickness: 10,
+                    ),
+
                     Product_category_row(
                       SuccessState: SuccessState,
                       itemCount: SuccessState.cloths.length,
