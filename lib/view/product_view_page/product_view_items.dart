@@ -90,7 +90,7 @@ class ProductDetailScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "₹${productDataModel.price}",
+                        "\$${productDataModel.price}",
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -132,6 +132,14 @@ class ProductDetailScreen extends StatelessWidget {
                       Text(productDataModel.count.toString()),
                     ],
                   ),
+                  const SizedBox(height: 15,),
+                   const Text(
+                          'In Stock',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.green,
+                          ),
+                        ),
                 ],
               ),
             ),

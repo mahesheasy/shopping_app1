@@ -1,57 +1,7 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:shopping_app/screens/bloc/home_bloc.dart';
-// import 'package:shopping_app/screens/models/home_products.dart';
-
-// class CustomBottomSheet extends StatelessWidget {
-//   final ProductDataModel productDataModel;
-//   const CustomBottomSheet({super.key, required this.productDataModel});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final homeBloc = BlocProvider.of<HomeBloc>(context);
-//     return Container(
-//       height: 50,
-//       color: Colors.grey,
-//       padding: const EdgeInsets.symmetric(horizontal: 20),
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.spaceAround,
-//         children: [
-//           ElevatedButton(
-//             onPressed: () {
-//               homeBloc.add(HomeProductCartButtonClickedEvent(
-//                   clickedProduct: productDataModel));
-//             },
-//             style: ElevatedButton.styleFrom(
-//                 backgroundColor: Colors.blue, minimumSize: const Size(150, 50)),
-//             child: const Text(
-//               'Add to Cart',
-//               style: TextStyle(
-//                 color: Colors.white,
-//                 fontSize: 25,
-//               ),
-//             ),
-//           ),
-//           ElevatedButton(
-//             onPressed: () {},
-//             style: ElevatedButton.styleFrom(
-//                 backgroundColor: Colors.green,
-//                 minimumSize: const Size(150, 50)),
-//             child: const Text(
-//               'Buy Now',
-//               style: TextStyle(
-//                 color: Colors.white,
-//                 fontSize: 25,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:shopping_app/buypage/ui/buy_now_items.dart';
 import 'package:shopping_app/screens/bloc/home_bloc.dart';
 import 'package:shopping_app/screens/models/home_products.dart';
 
@@ -92,7 +42,6 @@ class CustomBottomSheet extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: const [
-                    
                     Text(
                       'Add to Cart',
                       style: TextStyle(
@@ -107,13 +56,19 @@ class CustomBottomSheet extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 16),
-          Divider(color: Colors.black,thickness: 8,height: 10,),
           Expanded(
             child: Material(
               color: Colors.white,
               child: InkWell(
                 onTap: () {
-                  // Perform your action for 'Buy Now' here
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>BuyNowPage (
+                        productDataModel: productDataModel,
+                      ),
+                    ),
+                  );
                 },
                 borderRadius: BorderRadius.circular(8),
                 child: Stack(
