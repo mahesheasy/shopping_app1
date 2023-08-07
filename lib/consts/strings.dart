@@ -26,3 +26,4 @@ final List<String>category_items=[
 'Footwear'
 
 ];
+const image1='assets/images/boy_image.png';

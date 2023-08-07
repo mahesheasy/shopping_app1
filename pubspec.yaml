@@ -43,7 +43,7 @@ dependencies:
   velocity_x: ^4.1.0
   get: ^4.6.5
   dots_indicator: ^3.0.0
-  flutter_swiper: ^1.1.6
+  
   carousel_slider: ^4.2.1
   expandable: ^5.0.1
   expandable_text: ^2.3.0
@@ -76,7 +76,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - assets/fonts/
+  #  - assets/fonts/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

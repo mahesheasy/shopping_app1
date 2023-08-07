@@ -8,6 +8,7 @@ import 'package:shopping_app/cart/cartitems.dart';
 import 'package:shopping_app/consts/consts.dart';
 
 import 'package:shopping_app/screens/bloc/home_bloc.dart';
+import 'package:shopping_app/screens/show_gender_bottom_sheet.dart';
 import 'package:shopping_app/screens/ui/category_widget.dart';
 import 'package:shopping_app/screens/ui/circular_avatar_widget.dart';
 
@@ -34,6 +35,12 @@ class _HomepageState extends State<Homepage> {
   }
 
   HomeBloc homeBloc = HomeBloc();
+
+  bool isSortSelected = false;
+  bool isCategorySelected = false;
+  bool isGenderSelected = false;
+  bool isFiltersSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeBloc, HomeState>(
@@ -76,7 +83,7 @@ class _HomepageState extends State<Homepage> {
             final SuccessState = state as HomeLoadedSuccessState;
             return Scaffold(
               appBar: AppBar(
-                title: const Text('shopping App'),
+                title: const Text('FashionFrenzy'),
                 actions: [
                   IconButton(
                     onPressed: () {
@@ -126,17 +133,16 @@ class _HomepageState extends State<Homepage> {
                           return Builder(
                             builder: (BuildContext context) {
                               return Container(
-                                width: MediaQuery.of(context).size.width,
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 5.0),
-                                decoration: const BoxDecoration(
-                                  color: Colors.grey,
-                                ),
-                                child: Image.network(
-                                  urls,
-                                  fit: BoxFit.fill,
-                                ),
-                              );
+                                  width: MediaQuery.of(context).size.width,
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 5.0),
+                                  decoration: const BoxDecoration(
+                                    color: Colors.grey,
+                                  ),
+                                  child: Image.asset(
+                                    urls,
+                                    fit: BoxFit.fill,
+                                  ));
                             },
                           );
                         }).toList(),
@@ -156,18 +162,65 @@ class _HomepageState extends State<Homepage> {
                       color: Colors.grey,
                       thickness: 10,
                     ),
-                     const SizedBox(height: 2,),
+                    const SizedBox(
+                      height: 2,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children:  const [
-                        CategoryWidget(title: 'Sort', icon: Icons.sync_alt_outlined,),
-                        CategoryWidget(title: 'Category',icon: Icons.sync_alt_outlined,),
-                        CategoryWidget(title: 'Gender',icon: Icons.sync_alt_outlined,),
-                          CategoryWidget(title: 'Filters',icon: Icons.filter_list,),
+                      children: [
+                        CategoryWidget(
+                          title: 'Sort',
+                          icon: Icons.sync_alt_outlined,
+                          isSelected: isSortSelected,
+                          onTap: () {
+                            setState(() {
+                              isSortSelected = !isSortSelected;
+                            });
+                          },
+                        ),
+                        CategoryWidget(
+                          title: 'Category',
+                          icon: Icons.sync_alt_outlined,
+                          isSelected: isCategorySelected,
+                          onTap: () {
+                            setState(() {
+                              isCategorySelected = !isCategorySelected;
+                            });
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Homepage(),
+                              ),
+                            );
+                          },
+                        ),
+                        CategoryWidget(
+                          title: 'Gender',
+                          icon: Icons.man,
+                          isSelected: isGenderSelected,
+                          onTap: () {
+                            setState(() {
+                              isGenderSelected = !isGenderSelected;
+                            });
+                            showGenderBottomSheet(context);
+                          },
+                        ),
+                        CategoryWidget(
+                          title: 'Filters',
+                          icon: Icons.filter_list,
+                          isSelected: isFiltersSelected,
+                          onTap: () {
+                            setState(() {
+                              isFiltersSelected = !isFiltersSelected;
+                            });
+                          },
+                        ),
                       ],
                     ),
-                    const SizedBox(height: 2,),
-                       const Divider(
+                    const SizedBox(
+                      height: 2,
+                    ),
+                    const Divider(
                       color: Colors.grey,
                       thickness: 10,
                     ),

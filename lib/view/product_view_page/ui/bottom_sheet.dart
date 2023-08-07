@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:shopping_app/buypage/ui/buy_now_items.dart';
+import 'package:shopping_app/cart/bloc/cart_bloc.dart';
+
+
 import 'package:shopping_app/screens/bloc/home_bloc.dart';
 import 'package:shopping_app/screens/models/home_products.dart';
+import 'package:shopping_app/snackbar/show_snack_bar.dart';
 
 class CustomBottomSheet extends StatelessWidget {
   final ProductDataModel productDataModel;
@@ -13,6 +16,7 @@ class CustomBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeBloc = BlocProvider.of<HomeBloc>(context);
+    final cartBloc = BlocProvider.of<CartBloc>(context);
     return Container(
       height: 80,
       decoration: BoxDecoration(
@@ -37,11 +41,13 @@ class CustomBottomSheet extends StatelessWidget {
                       clickedProduct: productDataModel,
                     ),
                   );
+
+                  showSnackbar(context, 'Added to Cart');
                 },
                 borderRadius: BorderRadius.circular(8),
-                child: Stack(
+                child: const Stack(
                   alignment: Alignment.center,
-                  children: const [
+                  children: [
                     Text(
                       'Add to Cart',
                       style: TextStyle(
@@ -61,19 +67,25 @@ class CustomBottomSheet extends StatelessWidget {
               color: Colors.white,
               child: InkWell(
                 onTap: () {
+                  //cartBloc.add(CartAddEvent(productDataModel: productDataModel));
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>BuyNowPage (
+                      builder: (context) => BuyNowPage(
                         productDataModel: productDataModel,
                       ),
                     ),
                   );
+                  homeBloc.add(
+                    HomeProductCartButtonClickedEvent(
+                      clickedProduct: productDataModel,
+                    ),
+                  );
                 },
                 borderRadius: BorderRadius.circular(8),
-                child: Stack(
+                child: const Stack(
                   alignment: Alignment.center,
-                  children: const [
+                  children: [
                     Icon(
                       Icons.shopping_bag,
                       color: Colors.white,

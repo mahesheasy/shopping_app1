@@ -22,7 +22,7 @@ class ProductDetailScreen extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Cart()), // Navigate to the cart screen
+                MaterialPageRoute(builder: (context) =>   const Cart()), // Navigate to the cart screen
               );
             },
             icon: const Icon(Icons.shopping_cart),

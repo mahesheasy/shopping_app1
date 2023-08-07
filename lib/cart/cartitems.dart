@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_app/cart/bloc/cart_bloc.dart';
 import 'package:shopping_app/cart/ui/cart_products.dart';
+import 'package:shopping_app/screens/models/home_products.dart';
+
+import 'package:shopping_app/view/product_view_page/ui/bottom_sheet.dart';
 
 class Cart extends StatefulWidget {
-  const Cart({super.key});
+  const Cart({
+    super.key,
+  });
 
   @override
   State<Cart> createState() => _CartState();
@@ -13,6 +18,10 @@ class Cart extends StatefulWidget {
 
 class _CartState extends State<Cart> {
   final CartBloc cartBloc = CartBloc();
+  
+
+ 
+
   @override
   void initState() {
     cartBloc.add(CartInitialEvent());
@@ -23,13 +32,11 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cart Items'),
+        title: const Text('Cart Items'),
       ),
       body: BlocConsumer<CartBloc, CartState>(
         bloc: cartBloc,
-        listener: (context, state) {
-          
-        },
+        listener: (context, state) {},
         listenWhen: (previous, current) => current is CartActionState,
         buildWhen: (previous, current) => current is! CartActionState,
         builder: (context, state) {
@@ -49,6 +56,7 @@ class _CartState extends State<Cart> {
           return Container();
         },
       ),
+      
     );
   }
 }

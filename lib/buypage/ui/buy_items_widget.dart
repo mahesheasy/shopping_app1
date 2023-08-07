@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+
 import 'package:shopping_app/cart/bloc/cart_bloc.dart';
+
 import 'package:shopping_app/screens/models/home_products.dart';
 
 class BuyItemsWidget extends StatelessWidget {
@@ -12,11 +14,12 @@ class BuyItemsWidget extends StatelessWidget {
     Key? key,
     required this.productDataModel,
     required this.cartBloc,
-   // required this.quantity,
+    // required this.quantity,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+ 
     return Container(
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
@@ -41,7 +44,7 @@ class BuyItemsWidget extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               image: DecorationImage(
-               // fit: BoxFit.cover,
+                // fit: BoxFit.cover,
                 image: NetworkImage(productDataModel.imageUrl),
               ),
             ),
@@ -78,7 +81,9 @@ class BuyItemsWidget extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Row(
                       children: [
                         IconButton(
@@ -96,9 +101,11 @@ class BuyItemsWidget extends StatelessWidget {
                         ),
                         IconButton(
                           onPressed: () {
-                            // cartBloc.add(CartAddToCartEvent(
-                            //   productDataModel: productDataModel,
-                            // ));
+                            // homeBloc.add(
+                            //   HomeProductCartButtonClickedEvent(
+                            //     clickedProduct: productDataModel,
+                            //   ),
+                            // );
                           },
                           icon: const Icon(Icons.add_circle_outline),
                           color: Colors.green,

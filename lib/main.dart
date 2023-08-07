@@ -6,23 +6,15 @@ import 'package:shopping_app/screens/bloc/home_bloc.dart';
 
 import 'package:shopping_app/view/splash_screen/splash_screen.dart';
 
-// void main() {
-//   // runApp(const MyApp());
-//     runApp(
-//     BlocProvider<HomeBloc>(
-//       create: (context) => HomeBloc(),
-//       child: const MyApp(),
-//     ),
-//   );
-// 
+
 void main() =>runApp(MultiBlocProvider(
       providers: [
         BlocProvider<HomeBloc>(
           create: (BuildContext context) => HomeBloc(),
         ),
-        // BlocProvider<CartBloc>(
-        //   create: (BuildContext context) => CartBloc(),
-        // ),
+        BlocProvider<CartBloc>(
+          create: (BuildContext context) => CartBloc(),
+        ),
       ],
       child: const MyApp(),
       

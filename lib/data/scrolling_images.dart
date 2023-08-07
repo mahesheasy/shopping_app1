@@ -1,8 +1,8 @@
 final List<String> Scrolling_urls = [
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4YioHLF6FYBvNcK9irkxat8KQ4PwP-cGR0A&usqp=CAU",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy7LQUXzLg-k3WdxBnBSmfEoJhwFW3pE6s5Q&usqp=CAU",
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS8cCdPM90gMf2PzdDS7cnEFJym2UNsNqZ_g&usqp=CAU',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIwtuVneGT-Ee-2K7C7N282GTBFwCRoYlMpg&usqp=CAU',
+  "assets/images/scrolling_image1.jpeg",
+  "assets/images/scrolling_image2.jpeg",
+  'assets/images/scrolling_image3.jpeg',
+  'assets/images/scrolling_image4.jpeg',
 ];
 final List<dynamic> Circular_avatar = [
    {
