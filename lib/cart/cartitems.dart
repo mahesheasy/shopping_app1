@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_app/cart/bloc/cart_bloc.dart';
 import 'package:shopping_app/cart/ui/cart_products.dart';
-import 'package:shopping_app/screens/models/home_products.dart';
-
-import 'package:shopping_app/view/product_view_page/ui/bottom_sheet.dart';
 
 class Cart extends StatefulWidget {
   const Cart({
@@ -18,9 +15,6 @@ class Cart extends StatefulWidget {
 
 class _CartState extends State<Cart> {
   final CartBloc cartBloc = CartBloc();
-  
-
- 
 
   @override
   void initState() {
@@ -56,7 +50,6 @@ class _CartState extends State<Cart> {
           return Container();
         },
       ),
-      
     );
   }
 }

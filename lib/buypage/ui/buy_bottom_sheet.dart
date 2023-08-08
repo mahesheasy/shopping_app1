@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopping_app/buypage/ui/buy_now_items.dart';
-import 'package:shopping_app/cart/bloc/cart_bloc.dart';
 
-
-import 'package:shopping_app/screens/bloc/home_bloc.dart';
 import 'package:shopping_app/screens/models/home_products.dart';
-import 'package:shopping_app/snackbar/show_snack_bar.dart';
 
-class CustomBottomSheet extends StatelessWidget {
+class BuyBottomSheet extends StatelessWidget {
   final ProductDataModel productDataModel;
-  const CustomBottomSheet({Key? key, required this.productDataModel})
-      : super(key: key);
+  const BuyBottomSheet({super.key, required this.productDataModel});
 
   @override
   Widget build(BuildContext context) {
-    final homeBloc = BlocProvider.of<HomeBloc>(context);
-    final cartBloc=BlocProvider.of<CartBloc>(context);
     return Container(
       height: 80,
       decoration: BoxDecoration(
@@ -35,22 +26,13 @@ class CustomBottomSheet extends StatelessWidget {
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                onTap: () {
-                  homeBloc.add(
-                    HomeProductCartButtonClickedEvent(
-                      clickedProduct: productDataModel,
-                    ),
-                  );
-
-                  showSnackbar(context, 'Added to Cart');
-                },
                 borderRadius: BorderRadius.circular(8),
-                child: const Stack(
+                child: Stack(
                   alignment: Alignment.center,
                   children: [
                     Text(
-                      'Add to Cart',
-                      style: TextStyle(
+                      "\$${productDataModel.price}",
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -66,23 +48,7 @@ class CustomBottomSheet extends StatelessWidget {
             child: Material(
               color: Colors.white,
               child: InkWell(
-                onTap: () {
-                  cartBloc.add(CartAddEvent(productDataModel: productDataModel));
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BuyNowPage(
-                        productDataModel: productDataModel,
-                                         cartBloc: cartBloc,
-                      ),
-                    ),
-                  );
-                  homeBloc.add(
-                    HomeProductBuyButtonClickedEvent(
-                      clickedBuyProduct: productDataModel,
-                    ),
-                  );
-                },
+                onTap: () {},
                 borderRadius: BorderRadius.circular(8),
                 child: const Stack(
                   alignment: Alignment.center,
@@ -93,7 +59,7 @@ class CustomBottomSheet extends StatelessWidget {
                       size: 32,
                     ),
                     Text(
-                      'Buy Now',
+                      'Continue',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 16,

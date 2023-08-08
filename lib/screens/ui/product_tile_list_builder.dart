@@ -55,7 +55,7 @@ class ProductTileWidget extends StatelessWidget {
                     borderRadius:
                         const BorderRadius.vertical(top: Radius.circular(16)),
                     image: DecorationImage(
-                    //  fit: BoxFit.cover,
+                 
                       image: NetworkImage(
                         productDataModel.imageUrl,
                       ),

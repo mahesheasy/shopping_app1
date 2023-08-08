@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app/consts/consts.dart';
+
 import 'package:shopping_app/screens/bloc/home_bloc.dart';
 import 'package:shopping_app/screens/models/home_products.dart';
 import 'package:shopping_app/screens/ui/product_tile_list_builder.dart';

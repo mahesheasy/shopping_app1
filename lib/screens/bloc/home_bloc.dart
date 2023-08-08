@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:shopping_app/data/buy_items.dart';
 
 import 'package:shopping_app/data/cart_items.dart';
 
@@ -21,7 +22,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeProductCartButtonClickedEvent>(homeProductCartButtonClickedEvent);
     on<HomeWhishlistButtonNavigateEvent>(homeWhishlistButtonNavigateEvent);
     on<HomeCartButtonNavigateEvent>(homeCartButtonNavigateEvent);
-   
+    on<HomeProductBuyButtonClickedEvent>(homeProductBuyButtonClickedEvent);
   }
   FutureOr<void> homeInitialEvent(
       HomeInitialEvent event, Emitter<HomeState> emit) async {
@@ -86,5 +87,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(HomeNavigateToCartlistPageActionState());
   }
 
-  
+  FutureOr<void> homeProductBuyButtonClickedEvent(
+      HomeProductBuyButtonClickedEvent event, Emitter<HomeState> emit) {
+        print('Buy button clicked ');
+        BuyListItems.add(event.clickedBuyProduct);
+        emit(HomeProductItemBuyedActionState());
+      }
 }

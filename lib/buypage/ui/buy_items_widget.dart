@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-
-
-import 'package:shopping_app/cart/bloc/cart_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping_app/buypage/bloc/buy_bloc.dart';
 
 import 'package:shopping_app/screens/models/home_products.dart';
 
 class BuyItemsWidget extends StatelessWidget {
   final ProductDataModel productDataModel;
-  final CartBloc cartBloc;
+  
   //final int quantity;
 
   const BuyItemsWidget({
     Key? key,
     required this.productDataModel,
-    required this.cartBloc,
+    
     // required this.quantity,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
- 
+    final buyBloc = BlocProvider.of<BuyBloc>(context);
+
     return Container(
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
@@ -88,7 +88,7 @@ class BuyItemsWidget extends StatelessWidget {
                       children: [
                         IconButton(
                           onPressed: () {
-                            cartBloc.add(CartRemoveFromCartEvent(
+                            buyBloc.add(BuyRemoveFromBuyEvent(
                               productDataModel: productDataModel,
                             ));
                           },

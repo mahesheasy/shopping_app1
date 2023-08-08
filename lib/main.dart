@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:shopping_app/buypage/bloc/buy_bloc.dart';
 import 'package:shopping_app/cart/bloc/cart_bloc.dart';
 import 'package:shopping_app/screens/bloc/home_bloc.dart';
 
@@ -14,6 +15,9 @@ void main() =>runApp(MultiBlocProvider(
         ),
         BlocProvider<CartBloc>(
           create: (BuildContext context) => CartBloc(),
+        ),
+        BlocProvider<BuyBloc>(
+          create: (BuildContext context) => BuyBloc(),
         ),
       ],
       child: const MyApp(),
